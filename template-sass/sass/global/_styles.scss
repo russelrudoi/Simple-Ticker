@@ -1,6 +1,9 @@
 /* wrapper */
-#wrapper {
-	@include box;
+// #wrapper {
+// 	@include box;
+// }
+.container {
+	position: relative;
 }
 .layout {
 	margin:0 auto;

@@ -5,41 +5,47 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width; initial-scale=1">
 	<!-- <link rel="stylesheet" href="sass/fonts.css" type="text/css"/> Подключил стили с google fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/all.css" type="text/css" />
 	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 	<title>CoinTinker</title>
 </head>
 
 <body>
-	<div id="wrapper">
+	<div class="container">
 		<header>
 			<div class="layout">
-				<div class="logo">
-					<img src="./images/GLogo.png" alt="logo">
-					<p>CoinTiker</p>
+				<div class="header__wrapper">
+					<div class="header__logo">
+						<a href=""><img src="./images/GLogo.png" alt="logo"></a>
+						<p>CoinTiker</p>
+					</div>
+					<div class="header__inner">
+						<nav class="header__nav">
+							<ul>
+								<li>
+									<a href="#">About us</a>
+								</li>
+								<li>
+									<a href="#">About product</a>
+								</li>
+								<li>
+									<a href="#">News</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="header__logReg">
+							<a href="">Sign in</a>
+							<button type="submit">Sign up</button>
+						</div>
+						<div class="header-info">
+							<div class="header-info__circle"></div>
+						</div>
+					</div>
 				</div>
-				<nav>
-					<ul>
-						<li>
-							<a href="#">About us</a>
-						</li>
-						<li>
-							<a href="#">About product</a>
-						</li>
-						<li>
-							<a href="#">News</a>
-						</li>
-					</ul>
-				</nav>
-
-			</div>
-			<div class="logReg">
-				<a href="">Sing in</a>
-				<a class="Reg" href="">Sing up</a>
 			</div>
 			<section class="promo">
+
 				<div class="layout">
 					<nav class="nav-page">
 						<ul>
@@ -49,7 +55,7 @@
 						</ul>
 					</nav>
 					<div class="coin__inner">
-						<div class="coin__item"><img src="images/icons/coin-icons/Vector-1.svg" alt="Coin"></div>
+						<!-- <div class="coin__item"><img src="images/icons/coin-icons/Vector-1.svg" alt="Coin"></div> -->
 						<div class="coin__item"><img src="images/icons/coin-icons/Vector-2.svg" alt="Coin"></div>
 						<div class="coin__item"><img src="images/icons/coin-icons/Vector-3.svg" alt="Coin"></div>
 						<div class="coin__item"><img src="images/icons/coin-icons/Vector-4.svg" alt="Coin"></div>
@@ -106,16 +112,16 @@
 				</div>
 			</section>
 		</header>
-		<main>
-			
-			<div id="content">
 
+		<main>
+			<div id="content">
 			</div>
 		</main>
-		<footer>
 
+		<footer>
 		</footer>
 	</div>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
