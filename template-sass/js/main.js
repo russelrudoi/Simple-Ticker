@@ -7,9 +7,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Скрипт для рандомного расположения монеток
 
-    itemCoins.forEach(item => {
-        setPosition(item)
-    })
+    // itemCoins.forEach(item => {
+    //     setPosition(item)
+    // })
 
     function posit() {
         let posY = Math.floor(Math.random() * heightWindow);
