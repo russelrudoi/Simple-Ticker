@@ -74,7 +74,7 @@
             width: 16px;
             height: 16px;
             animation-name: anima;
-            animation-duration: 150s;
+            animation-duration: 140s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
             z-index: 1;
@@ -270,39 +270,82 @@
 
 @keyframes anima {
     0% {
+        transform: rotateZ(180deg) translate(350px);
+    }
+
+    25% {
+        transform: rotateZ(-180deg) translate(350px);
+        left: 75%;
+    }
+
+    50% {
+        left: 15%;
         transform: rotateZ(0deg) translate(350px);
     }
 
-    20% {
-        transform: rotateZ(180deg) translateX(350px);
-        left: 75%;
-    }
-
-    40% {
-        transform: rotateZ(0deg) translateX(350px);
+    75% {
+        transform: rotateZ(360deg) translate(350px);
         left: 15%;
-    }
-
-    60% {
-        transform: rotateZ(360deg) translateX(350px);
-        left: 15%;
-    }
-
-    80% {
-        transform: rotateZ(180deg) translateX(350px);
-        left: 75%;
     }
 
     100% {
-        transform: rotateZ(360deg) translateX(350px);
+        transform: rotateZ(180deg) translate(350px);
         left: 75%;
     }
 
-    // 75% {
 
+    // 20% {
+    //     transform: rotateZ(180deg) translateX(350px);
+    //     left: 75%;
+    // }
+
+    // 40% {
+    //     transform: rotateZ(0deg) translateX(350px);
+    //     left: 15%;
+    // }
+
+    // 60% {
+    //     transform: rotateZ(360deg) translateX(350px);
+    //     left: 15%;
+    // }
+
+    // 80% {
+    //     transform: rotateZ(180deg) translateX(350px);
+    //     left: 75%;
     // }
 
     // 100% {
-
+    //     transform: rotateZ(360deg) translateX(350px);
+    //     left: 75%;
     // }
+
+    // 0% {
+    //     transform: rotateZ(0deg) translate(350px);
+    // }
+
+    // 20% {
+    //     transform: rotateZ(180deg) translateX(350px);
+    //     left: 75%;
+    // }
+
+    // 40% {
+    //     transform: rotateZ(0deg) translateX(350px);
+    //     left: 15%;
+    // }
+
+    // 60% {
+    //     transform: rotateZ(360deg) translateX(350px);
+    //     left: 15%;
+    // }
+
+    // 80% {
+    //     transform: rotateZ(180deg) translateX(350px);
+    //     left: 75%;
+    // }
+
+    // 100% {
+    //     transform: rotateZ(360deg) translateX(350px);
+    //     left: 75%;
+    // }
+
 }
