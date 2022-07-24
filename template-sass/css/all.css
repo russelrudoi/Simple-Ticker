@@ -326,7 +326,42 @@ main {
       align-self: center;
   color: #FFFFFF;
 }
+.promo__field-count {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 40.5%;
+  -webkit-transform: translate(-50%, -50%) rotateY(324deg) rotateX(0deg) rotateZ(2.5deg);
+          transform: translate(-50%, -50%) rotateY(324deg) rotateX(0deg) rotateZ(2.5deg);
+  width: 170px;
+  height: 40px;
+  font-size: 35px;
+  line-height: 35px;
+  color: #D0CECF;
+  background: #080808;
+  z-index: 3;
+  text-align: center;
+}
+.promo__field-valuta {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  position: absolute;
+  top: 45%;
+  left: 40.5%;
+  -webkit-transform: translate(-50%, -50%) rotateY(324deg) rotateX(0deg) rotateZ(2.5deg);
+          transform: translate(-50%, -50%) rotateY(324deg) rotateX(0deg) rotateZ(2.5deg);
+  width: 85px;
+  height: 20px;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #D0CECF;
+  background: #080808;
+  z-index: 3;
+}
 .promo__image {
+  position: relative;
   width: 808px;
   height: 778px;
 }
@@ -387,6 +422,7 @@ main {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   z-index: 1;
+  cursor: pointer;
 }
 .promo .coin__item_1 {
   top: 60%;

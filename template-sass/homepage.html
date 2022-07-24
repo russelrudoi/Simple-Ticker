@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width; initial-scale=1">
 	<!-- <link rel="stylesheet" href="sass/fonts.css" type="text/css"/> Подключил стили с google fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/all.css" type="text/css" />
 	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
 	<title>CoinTinker</title>
@@ -55,9 +56,9 @@
 						</ul>
 					</nav>
 					<div class="coin__inner">
-						<div class="coin__item coin__item_1"><img src="images/icons/coin-icons/Vector-1.svg" alt="Coin"></div>
-						<div class="coin__item coin__item_2"><img src="images/icons/coin-icons/Vector-2.svg" alt="Coin"></div>
-						<div class="coin__item coin__item_3"><img src="images/icons/coin-icons/Vector-3.svg" alt="Coin"></div>
+						<div class="coin__item coin__item_1" data-coin="bitcoin" data-valuta="BTC"><img src="images/icons/coin-icons/Vector-1.svg" alt="Coin"></div>
+						<div class="coin__item coin__item_2" data-coin="ethereum" data-valuta="ETH"><img src="images/icons/coin-icons/Vector-2.svg" alt="Coin"></div>
+						<!-- <div class="coin__item coin__item_3"><img src="images/icons/coin-icons/Vector-3.svg" alt="Coin"></div>
 						<div class="coin__item coin__item_4"><img src="images/icons/coin-icons/Vector-4.svg" alt="Coin"></div>
 						<div class="coin__item coin__item_5"><img src="images/icons/coin-icons/Vector-5.svg" alt="Coin"></div>
 						<div class="coin__item coin__item_6"><img src="images/icons/coin-icons/Vector-6.svg" alt="Coin"></div>
@@ -84,7 +85,7 @@
 						<div class="coin__item coin__item_27"><img src="images/icons/coin-icons/Vector-27.svg" alt="Coin"></div>
 						<div class="coin__item coin__item_28"><img src="images/icons/coin-icons/Vector-28.svg" alt="Coin"></div>
 						<div class="coin__item coin__item_29"><img src="images/icons/coin-icons/Vector-29.svg" alt="Coin"></div>
-						<div class="coin__item coin__item_30"><img src="images/icons/coin-icons/Vector-30.svg" alt="Coin"></div>  -->
+						<div class="coin__item coin__item_30"><img src="images/icons/coin-icons/Vector-30.svg" alt="Coin"></div>  --> 
 					</div>
 					<div class="promo__wrapper">
 						<div class="promo__header">
@@ -92,6 +93,10 @@
 							IN REAL TIME
 						</div>
 						<div class="promo__image">
+							<div >
+								<div class="promo__field-valuta">BTC/USD</div>
+								<div class="promo__field-count"></div>
+							</div>
 							<img src="images/img/Device+blur.png" alt="Ticker">
 						</div>
 					</div>

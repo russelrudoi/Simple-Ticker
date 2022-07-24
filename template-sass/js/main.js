@@ -1,27 +1,38 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    const itemCoins = document.querySelectorAll('.coin__item');
-    const widthWindow = document.querySelector('.coin__inner').clientWidth;
-    const heightWindow = document.querySelector('.coin__inner').clientHeight;
+    const coins = document.querySelectorAll('.coin__item'),
+        fieldValuta = document.querySelector('.promo__field-valuta'),
+        fieldCount = document.querySelector('.promo__field-count');
 
+    let nameCoin = 'bitcoin'
+    let pricesWs;
 
-    //Скрипт для рандомного расположения монеток
+    let objectCoin = {}
 
-    // itemCoins.forEach(item => {
-    //     setPosition(item)
-    // })
+    coins.forEach(item => {
+        item.addEventListener('click', (e) => {
 
-    function posit() {
-        let posY = Math.floor(Math.random() * heightWindow);
-        let posX = Math.floor(Math.random() * widthWindow);
-        return [posX, posY];
+            nameCoin = e.currentTarget.dataset.coin;
+            showCostCoin(nameCoin)
+            fieldValuta.textContent = `${e.currentTarget.dataset.valuta}/USD`
+        })
+    })
+
+    pricesWs = new WebSocket(`wss://ws.coincap.io/prices?assets=ALL`);
+    function showCostCoin (nameCoin) {
+        pricesWs.onmessage = function (msg) {
+            let coinData = JSON.parse(msg.data);
+            let coinCost;
+            console.log(coinData);
+            if (coinData[nameCoin] !== undefined) {
+                coinCost = coinData[nameCoin];
+                fieldCount.textContent = coinCost;
+            }
+
+            
+            
+        }
     }
-
-    function setPosition(itemCoin) {
-        let posX = posit()[0];
-        let posY = posit()[1];
-        itemCoin.style.left = posX + 'px';
-        itemCoin.style.top = posY + 'px';
-    }
+    showCostCoin(nameCoin);
 
 })
