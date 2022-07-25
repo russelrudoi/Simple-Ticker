@@ -2,7 +2,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const coins = document.querySelectorAll('.coin__item'),
         fieldValuta = document.querySelector('.promo__field-valuta'),
-        fieldCount = document.querySelector('.promo__field-count');
+        fieldCount = document.querySelector('.promo__field-count'),
+        spinner = document.querySelector('.box-spinner');
 
     let nameCoin = 'btcusdt';
     let nameValuta = 'btcusdt';
@@ -11,28 +12,46 @@ window.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (e) => {
 
             nameCoin = e.currentTarget.dataset.coin;
-            showCostCoin(nameCoin)
+            showCostCoin(nameCoin);
             changeValuta(nameCoin);
+            changeActiveCoin(e.currentTarget)
+            
         })
     })
+
+    function changeActiveCoin (e) {
+        coins.forEach((item) => {
+            item.classList.remove('coin__item_active');
+            e.classList.add('coin__item_active');
+        })
+    }
 
     function changeValuta(str) {
         let index = (str.length - 1) / 2;
         nameValuta = str.substr(0, index) + '/' + str.substr(index);
         fieldValuta.textContent = nameValuta.toUpperCase();
     }
-    changeValuta(nameValuta)
+    changeValuta(nameValuta);
 
 
     pricesWs = new WebSocket(`wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade/solusdt@trade/xrpusdt@trade`);
+    
 
     function showCostCoin(nameCoin) {
         let nameCoinUpper = nameCoin.toUpperCase()
+        let coinCost;
+        if (coinCost == undefined) {
+            fieldCount.style.display = 'none';
+            spinner.style.display = 'block';
+        }
 
         pricesWs.onmessage = function (event) {
             let coinData = JSON.parse(event.data);
-            let coinCost;
-            console.log(coinData)
+
+            if (coinCost != undefined) {
+                fieldCount.style.display = 'block';
+                spinner.style.display = 'none';
+            }
             if (coinData.s == nameCoinUpper) {
                 coinCost = +coinData.p;
                 fieldCount.textContent = coinCost.toFixed(2);
