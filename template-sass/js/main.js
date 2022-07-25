@@ -4,35 +4,57 @@ window.addEventListener('DOMContentLoaded', () => {
         fieldValuta = document.querySelector('.promo__field-valuta'),
         fieldCount = document.querySelector('.promo__field-count');
 
-    let nameCoin = 'bitcoin'
-    let pricesWs;
-
-    let objectCoin = {}
+    let nameCoin = 'btcusdt';
+    let nameValuta = 'btcusdt';
 
     coins.forEach(item => {
         item.addEventListener('click', (e) => {
 
             nameCoin = e.currentTarget.dataset.coin;
             showCostCoin(nameCoin)
-            fieldValuta.textContent = `${e.currentTarget.dataset.valuta}/USD`
+            changeValuta(nameCoin);
         })
     })
 
-    pricesWs = new WebSocket(`wss://ws.coincap.io/prices?assets=ALL`);
-    function showCostCoin (nameCoin) {
-        pricesWs.onmessage = function (msg) {
-            let coinData = JSON.parse(msg.data);
-            let coinCost;
-            console.log(coinData);
-            if (coinData[nameCoin] !== undefined) {
-                coinCost = coinData[nameCoin];
-                fieldCount.textContent = coinCost;
-            }
+    function changeValuta(str) {
+        let index = (str.length - 1) / 2;
+        nameValuta = str.substr(0, index) + '/' + str.substr(index);
+        fieldValuta.textContent = nameValuta.toUpperCase();
+    }
+    changeValuta(nameValuta)
 
-            
-            
+
+    pricesWs = new WebSocket(`wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade/solusdt@trade/xrpusdt@trade`);
+
+    function showCostCoin(nameCoin) {
+        let nameCoinUpper = nameCoin.toUpperCase()
+
+        pricesWs.onmessage = function (event) {
+            let coinData = JSON.parse(event.data);
+            let coinCost;
+            console.log(coinData)
+            if (coinData.s == nameCoinUpper) {
+                coinCost = +coinData.p;
+                fieldCount.textContent = coinCost.toFixed(2);
+            }
         }
     }
     showCostCoin(nameCoin);
+
+
+
+
+
+    // Symbol: ETH/USDT - Kline 30 minutes.
+    // socket = new WebSocket('wss://stream.binance.com:9443/ws/ethusdt@trade');
+
+
+    // socket.onmessage = function (event) {
+
+    //     // Easier and shorter.
+    //     let data = JSON.parse(event.data);
+    //     console.log(data)
+    // }
+
 
 })
