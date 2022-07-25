@@ -7,11 +7,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let nameCoin = 'btcusdt';
     let nameValuta = 'btcusdt';
+    let pricesWs;
 
     coins.forEach(item => {
         item.addEventListener('click', (e) => {
 
             nameCoin = e.currentTarget.dataset.coin;
+            pricesWs.close()
             showCostCoin(nameCoin);
             changeValuta(nameCoin);
             changeActiveCoin(e.currentTarget)
@@ -33,11 +35,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     changeValuta(nameValuta);
 
-
-    pricesWs = new WebSocket(`wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade/solusdt@trade/xrpusdt@trade`);
+    // btcusdt@trade/ethusdt@trade/solusdt@trade/xrpusdt@trade
+    
     
 
     function showCostCoin(nameCoin) {
+        pricesWs = new WebSocket(`wss://stream.binance.com:9443/ws/${nameCoin}@trade`);
         let nameCoinUpper = nameCoin.toUpperCase()
         let coinCost;
         if (coinCost == undefined) {
@@ -47,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         pricesWs.onmessage = function (event) {
             let coinData = JSON.parse(event.data);
-
+            console.log(coinData)
             if (coinCost != undefined) {
                 fieldCount.style.display = 'block';
                 spinner.style.display = 'none';
