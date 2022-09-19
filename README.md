@@ -1,2 +1,2 @@
-# Pet-Project
-Pet-Project
+# Simple Tickr
+Pet-Project online shop
